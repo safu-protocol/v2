@@ -18,6 +18,7 @@ const tokenContractAddress = "0x324Ae774232F28693f5Af66509a0b4965C2F18DC";
 const stakingContractAddress = "0xaCb418Fdca48332e0215f6d94cDD867Fffd1D94d";
 
 import Menu from "../components/menu";
+import Footer from "../components/footer";
 
 const Stake: NextPage = () => {
     // Wallet Connection Hooks
@@ -193,7 +194,7 @@ const Stake: NextPage = () => {
                         ))}
                     </div>
                 </>
-            )}
+            )} {<Footer />}
         </div>
     );
 };

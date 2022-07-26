@@ -1,0 +1,19 @@
+.socialMenu {
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+}
+
+.socialHandleList {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.socialHandleItem {
+    margin: 8px;
+}

@@ -3,6 +3,9 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
+import Menu from "../components/menu";
+import Footer from "../components/footer";
+
 const Mint: NextPage = () => {
     const router = useRouter();
     // Get the currently connected wallet's address
@@ -30,6 +33,7 @@ const Mint: NextPage = () => {
 
     return (
         <div className={styles.container}>
+            <Menu />
             <h1 className={styles.h1}>Mint An NFT!</h1>
 
             <p className={styles.explain}>
@@ -52,7 +56,7 @@ const Mint: NextPage = () => {
                 >
                     Claim An NFT
                 </button>
-            )}
+            )} {<Footer />}
         </div>
     );
 };
