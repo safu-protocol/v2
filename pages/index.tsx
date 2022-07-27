@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import Link from 'next/link';
 
@@ -7,8 +6,6 @@ import Menu from "../components/menu";
 import Footer from "../components/footer";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-
   return (
     <div className={styles.container}>
       <Menu />
