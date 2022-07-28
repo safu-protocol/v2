@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React from "react";
+import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
 import Menu from "../components/menu";
@@ -12,12 +12,12 @@ export interface resultObject {
 
 const Scan: NextPage = () => {
 
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         tokenAddress: "",
         isLoading: false
     });
 
-    const [scanResults, setScanResults] = React.useState<resultObject>({});
+    const [scanResults, setScanResults] = useState<resultObject>({});
 
     async function handleChange(e: any) {
         setState({ ...state, [e.target.name]: e.target.value });

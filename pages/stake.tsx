@@ -13,9 +13,9 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
-const nftDropContractAddress = "0xb949F51f4DB16113e2175e385E86eCb0bd047a11";
-const tokenContractAddress = "0x324Ae774232F28693f5Af66509a0b4965C2F18DC";
-const stakingContractAddress = "0xaCb418Fdca48332e0215f6d94cDD867Fffd1D94d";
+const nftDropContractAddress = process.env.nftDropContractAddress;
+const tokenContractAddress = process.env.tokenContractAddress
+const stakingContractAddress = process.env.stakingContractAddress;
 
 import Menu from "../components/menu";
 import Footer from "../components/footer";

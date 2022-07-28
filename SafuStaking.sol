@@ -38,7 +38,10 @@ contract ERC721Staking is ReentrancyGuard {
     }
 
     // Rewards per hour per token deposited in wei.
-    uint256 private rewardsPerHour = 100000;
+    uint256 private rewardsPerHour = 1142 * (10**uint256(18));
+
+    // How many tokens are actively staked
+    uint256 private stakedTokensCount = 0;
 
     // Mapping of User Address to Staker info
     mapping(address => Staker) public stakers;
@@ -75,6 +78,9 @@ contract ERC721Staking is ReentrancyGuard {
 
         // Increment the amount staked for this wallet
         stakers[msg.sender].amountStaked++;
+
+        // Increment the total stake amount
+        stakedTokensCount++;
 
         // Update the mapping of the tokenId to the staker's address
         stakerAddress[_tokenId] = msg.sender;
@@ -121,6 +127,9 @@ contract ERC721Staking is ReentrancyGuard {
         // Decrement the amount staked for this wallet
         stakers[msg.sender].amountStaked--;
 
+        // Decrement the total amount staked
+        stakedTokensCount--;
+
         // Update the mapping of the tokenId to the be address(0) to indicate that the token is no longer staked
         stakerAddress[_tokenId] = address(0);
 
@@ -151,6 +160,10 @@ contract ERC721Staking is ReentrancyGuard {
         uint256 rewards = calculateRewards(_staker) +
             stakers[_staker].unclaimedRewards;
         return rewards;
+    }
+
+    function getTotalStakedTokens() public view returns (uint256) {
+        return stakedTokensCount;
     }
 
     function getStakedTokens(address _user)
@@ -187,15 +200,17 @@ contract ERC721Staking is ReentrancyGuard {
 
     // Calculate rewards for param _staker by calculating the time passed
     // since last update in hours and mulitplying it to ERC721 Tokens Staked
-    // and rewardsPerHour.
+    // and rewardsPerHour divided by the number of staked tokens.
     function calculateRewards(address _staker)
         internal
         view
         returns (uint256 _rewards)
     {
-        return (((
+        // We need to make sure it is not 0, in case all NFTs are unstaked to avoid division by zero
+        uint256 stakedTokensCountRatio = (stakedTokensCount > 0 ? stakedTokensCount : 1);
+        return ((((
             ((block.timestamp - stakers[_staker].timeOfLastUpdate) *
                 stakers[_staker].amountStaked)
-        ) * rewardsPerHour) / 3600);
+        ) * rewardsPerHour) / stakedTokensCountRatio) / 3600);
     }
 }
