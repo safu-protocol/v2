@@ -13,9 +13,9 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
-const nftDropContractAddress = process.env.nftDropContractAddress;
-const tokenContractAddress = process.env.tokenContractAddress
-const stakingContractAddress = process.env.stakingContractAddress;
+const nftDropContractAddress: string = process.env.nftDropContractAddress!;
+const tokenContractAddress: string = process.env.tokenContractAddress!;
+const stakingContractAddress: string = process.env.stakingContractAddress!;
 
 import Menu from "../components/menu";
 import Footer from "../components/footer";

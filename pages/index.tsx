@@ -51,7 +51,7 @@ const Home: NextPage = () => {
 
     getDashboardInfo();
 
-  }, [nftContract, contract]);
+  }, [nftContract, contract, state]);
 
 
   return (
