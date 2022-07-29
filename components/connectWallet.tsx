@@ -1,3 +1,4 @@
+import styles from "../styles/Wallet.module.css";
 import {
   useMetamask,
   useWalletConnect,
@@ -15,29 +16,52 @@ export const ConnectWallet = () => {
   const address = useAddress();
   const network = useNetwork();
 
+  const trimChars = (stringToTrim: string) => {
+    return stringToTrim.slice(0, 5) + "..." + stringToTrim.slice(38);
+  }
+
   // If a wallet is connected, show address, chainId and disconnect button
   if (address) {
     return (
-      <div>
-        Address: {address}
-        <br />
-        Chain ID: {network[0].data.chain && network[0].data.chain.id}
-        <br />
-        <button onClick={disconnectWallet}>Disconnect</button>
+      <div className={styles.menu}>
+        <ul>
+          <li><a className={styles.dropdownArrow} href="#">{trimChars(address)}</a>
+            <ul className={styles.subMenus}>
+              <li>
+                Network: {network[0].data.chain && network[0].data.chain.name}
+              </li>
+              <li>
+                <button onClick={disconnectWallet}>Disconnect</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     );
   }
 
   // If no wallet is connected, show connect wallet options
   return (
-    <div>
-      <button onClick={() => connectWithCoinbaseWallet()}>
-        Connect Coinbase Wallet
-      </button>
-      <button onClick={() => connectWithMetamask()}>Connect MetaMask</button>
-      <button onClick={() => connectWithWalletConnect()}>
-        Connect WalletConnect
-      </button>
+    <div className={styles.menu}>
+      <ul>
+        <li><a className={styles.dropdownArrow} href="#">Connect Wallet</a>
+          <ul className={styles.subMenus}>
+            <li>
+              <button onClick={() => connectWithCoinbaseWallet()}>
+                Coinbase Wallet
+              </button>
+            </li>
+            <li>
+              <button onClick={() => connectWithMetamask()}>MetaMask</button>
+            </li>
+            <li>
+              <button onClick={() => connectWithWalletConnect()}>
+                WalletConnect
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   );
 };
