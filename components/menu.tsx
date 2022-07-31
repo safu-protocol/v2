@@ -13,7 +13,14 @@ const Menu = () => {
                             <a>Home</a>
                         </Link>
                     </li>
-                    <li><a className={styles.dropdownArrow} href="#">Explore</a>
+                    <li>
+                        <a target="_blank" href="https://safuyield.gitbook.io/safu-net-safuyield" rel="noopener noreferrer">Docs</a>
+                    </li>
+                    <li>
+                        <a target="_blank" className={styles.buyButton} href="https://pancakeswap.finance/swap?outputCurrency=0xc74cd0042c837ce59210857504ebb0859e06aa22" rel="noopener noreferrer">Buy</a>
+                    </li>
+                    <li>
+                        <a className={styles.dropdownArrow} href="#">Explore</a>
                         <ul className={styles.subMenus}>
                             <li>
                                 <Link href="/stake">
@@ -33,10 +40,7 @@ const Menu = () => {
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a target="_blank" href="https://safuyield.gitbook.io/safu-net-safuyield" rel="noopener noreferrer">Docs</a>
-                    </li>
-                    <li><a href="http://">Socials</a></li>
+
                 </ul>
             </nav>
             <ConnectWallet />

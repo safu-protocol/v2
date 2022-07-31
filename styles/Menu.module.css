@@ -35,6 +35,10 @@
     font-size: 17px;
 }
 
+.menu .buyButton {
+    background-color: #444444;
+}
+
 .menu a.dropdownArrow:after {
     content: "\25BE";
     margin-left: 5px;

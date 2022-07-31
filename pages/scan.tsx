@@ -6,8 +6,10 @@ import Menu from "../components/menu";
 import Footer from "../components/footer";
 
 export interface resultObject {
-    name?: string;
-    tokenAddress?: string;
+    token_name?: string,
+    token_decimals?: number,
+    honeypot?: boolean;
+    conclusion?: string;
 }
 
 const Scan: NextPage = () => {
@@ -70,16 +72,42 @@ const Scan: NextPage = () => {
                         Solidity token code analysis tool and rug detector for BSC projects.
                     </p>
                     <p>
-                        {state.isLoading ? 'Scanning Token...' + state.tokenAddress : ""}
+                        {state.isLoading ? (
+                            <p>Scanning Token... <br />
+                                <strong>{state.tokenAddress}</strong>
+                            </p>
+                        ) : ""}
                     </p>
 
-                    {scanResults.name &&
-                        (<div>
-                            <p><strong>Token Name: </strong>{scanResults.name}</p>
-                            <p><strong>Token Address: </strong>{scanResults.tokenAddress}</p>
-                        </div>)
-                    }
                 </div>
+
+                {scanResults.token_name && !state.isLoading &&
+                    (
+                        <div className={styles.optionSelectBox}>
+
+                            <div className={styles.shelf}>
+                                <div className={styles.labelbox}>Token Name: </div>
+                                <div className={styles.valuebox}>{scanResults.token_name}</div>
+                            </div>
+
+                            <div className={styles.shelf}>
+                                <div className={styles.labelbox}>Token Decimals:</div>
+                                <div className={styles.valuebox}>{scanResults.token_decimals}</div>
+                            </div>
+
+                            <div className={styles.shelf}>
+                                <div className={styles.labelbox}>Honeypot Detected:</div>
+                                <div className={styles.valuebox}>{scanResults.honeypot?.toString()}</div>
+                            </div>
+
+                            <div className={styles.shelf}>
+                                <div className={styles.labelbox}>Conclusion:</div>
+                                <div className={styles.valuebox}>{scanResults.conclusion}</div>
+                            </div>
+
+                        </div>
+                    )
+                }
 
             </div>
 
