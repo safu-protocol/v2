@@ -73,8 +73,8 @@ const Home: NextPage = () => {
           <h2 className={styles.selectBoxTitle}>NFT stats</h2>
           <p className={styles.selectBoxDescription}>
             Total NFT supply / Claimed / Available: <strong>{state.totalNFTSupply}</strong> / <strong>{state.claimedNFTCount}</strong> / <strong>{state.unclaimedNFTCount}</strong> <br />
-            Number of staked NFTs: {state.stakedNFTCount} <br />
-            Hourly staking reward per NFT: {state.hourlyRewardPerNFT} SAFUYIELD <br />
+            Number of staked NFTs: <strong>{state.stakedNFTCount} </strong><br />
+            Hourly staking reward per NFT: <strong>{state.hourlyRewardPerNFT} SAFUYIELD</strong> <br />
             <small>(hourly SAFUYIELD emission divided by total number of staked NFTs)</small>
           </p>
         </div>
@@ -83,10 +83,10 @@ const Home: NextPage = () => {
           <img src={`/icons/emission-icon.png`} width="60" alt="token emission" />
           <h2 className={styles.selectBoxTitle}>Token emission</h2>
           <p className={styles.selectBoxDescription}>
-            Circulating SAFUYIELD supply: 100 Million <br />
-            Max SAFUYIELD supply: 200 Million <br />
-            Emission schedule(year): 10 Million SAFUYIELD <br />
-            Emission schedule(hour): 1142 SAFUYIELD
+            Circulating SAFUYIELD supply: <strong>100 Million</strong> <br />
+            Max SAFUYIELD supply: <strong>200 Million</strong> <br />
+            Emission schedule(year): <strong>10 Million SAFUYIELD</strong> <br />
+            Emission schedule(hour): <strong>1142 SAFUYIELD</strong>
           </p>
         </div>
 
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
             <img src={`/icons/mint-icon.png`} width="60" alt="token mint nft" />
             <h2 className={styles.selectBoxTitle}>Mint a new NFT</h2>
             <p className={styles.selectBoxDescription}>
-              Use the NFT Drop Contract to claim an NFT from the collection.
+              Use the <strong>SAFUNFT</strong> mint contract to claim your own <strong>SAFUMA NFT</strong> here.
             </p>
           </div>
         </Link>
@@ -105,8 +105,7 @@ const Home: NextPage = () => {
             <img src={`/icons/stake-icon.png`} width="60" alt="token stake nft" />
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
             <p className={styles.selectBoxDescription}>
-              Use the custom staking contract deployed via <b>thirdweb Deploy</b>{" "}
-              to stake your NFTs, and earn tokens from the <b>Token</b> contract.
+              Stake your ERC-721 <strong>SAFUMA</strong> NFTs via our staking contract and earn <strong>SAFUYIELD</strong> tokens.
             </p>
           </div>
         </Link>
