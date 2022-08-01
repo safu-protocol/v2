@@ -1,12 +1,23 @@
 .menu {
     background: #0099CC;
-    background: linear-gradient(to bottom, #2892AD, #A855F7);
+    background: linear-gradient(to bottom, var(--menu-color-base), var(--menu-color));
     color: #FFF;
     font-weight: 500;
     height: 63px;
     padding-left: 18px;
     border-radius: 0px;
     width: 100vw;
+}
+
+.menu .tokenHome {
+    padding-top: 14px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+    z-index: 200;
 }
 
 .menu ul,
@@ -36,7 +47,7 @@
 }
 
 .menu .buyButton {
-    background-color: #444444;
+    /*background-color: #444444;*/
 }
 
 .menu a.dropdownArrow:after {

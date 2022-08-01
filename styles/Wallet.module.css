@@ -1,6 +1,6 @@
 .menu {
     background: #03445a;
-    background: linear-gradient(to bottom, #2892AD, #A855F7);
+    background: linear-gradient(to bottom, var(--menu-color-base), var(--menu-color));
     color: #FFF;
     font-weight: 500;
     height: 63px;

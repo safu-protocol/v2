@@ -59,7 +59,9 @@ const Home: NextPage = () => {
       <Menu />
 
       {/* Top Section */}
-      <h1 className={styles.h1}>Safu Protocol (SAFU) staking - stake NFT - earn SAFU!</h1>
+      <div className={styles.topSection}>
+        <h1 className={styles.h1}><br /><br />Welcome to SAFUYIELD!</h1>
+      </div>
 
       <div
         className={styles.nftBoxGrid}
@@ -67,20 +69,18 @@ const Home: NextPage = () => {
       >
 
         <div className={styles.optionSelectBox}>
-          <img src={`/icons/drop.webp`} alt="drop" />
+          <img src={`/icons/nft-icon.png`} width="60" alt="nft stats" />
           <h2 className={styles.selectBoxTitle}>NFT stats</h2>
           <p className={styles.selectBoxDescription}>
-            Total NFT supply: {state.totalNFTSupply} <br />
-            Claimed NFT supply: {state.claimedNFTCount} <br />
-            Available to Mint: {state.unclaimedNFTCount} <br />
+            Total NFT supply / Claimed / Available: <strong>{state.totalNFTSupply}</strong> / <strong>{state.claimedNFTCount}</strong> / <strong>{state.unclaimedNFTCount}</strong> <br />
             Number of staked NFTs: {state.stakedNFTCount} <br />
             Hourly staking reward per NFT: {state.hourlyRewardPerNFT} SAFUYIELD <br />
-            (hourly SAFUYIELD emission divided by total number of staked NFTs)
+            <small>(hourly SAFUYIELD emission divided by total number of staked NFTs)</small>
           </p>
         </div>
 
         <div className={styles.optionSelectBox}>
-          <img src={`/icons/drop.webp`} alt="drop" />
+          <img src={`/icons/emission-icon.png`} width="60" alt="token emission" />
           <h2 className={styles.selectBoxTitle}>Token emission</h2>
           <p className={styles.selectBoxDescription}>
             Circulating SAFUYIELD supply: 100 Million <br />
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 
         <Link href="/mint">
           <div className={styles.optionSelectBox}>
-            <img src={`/icons/drop.webp`} alt="drop" />
+            <img src={`/icons/mint-icon.png`} width="60" alt="token mint nft" />
             <h2 className={styles.selectBoxTitle}>Mint a new NFT</h2>
             <p className={styles.selectBoxDescription}>
               Use the NFT Drop Contract to claim an NFT from the collection.
@@ -101,11 +101,8 @@ const Home: NextPage = () => {
         </Link>
 
         <Link href="/stake">
-          <div
-            className={styles.optionSelectBox}
-            role="button"
-          >
-            <img src={`/icons/token.webp`} alt="drop" />
+          <div className={styles.optionSelectBox} role="button">
+            <img src={`/icons/stake-icon.png`} width="60" alt="token stake nft" />
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
             <p className={styles.selectBoxDescription}>
               Use the custom staking contract deployed via <b>thirdweb Deploy</b>{" "}

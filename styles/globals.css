@@ -28,10 +28,13 @@ select {
     --white: #ffffff;
     --tw-color1: #a855f7;
     --tw-color1-hover: #9333ea;
+    --menu-color: #2CAAAA;
+    --menu-color-base: #2892AD;
 }
 
 body {
     background: var(--black);
+    background: linear-gradient(112.83deg, #223332 8.26%, #202929 59.75%, #1F2021 94.66%);
     font-family: "Inter", sans-serif;
     color: var(--white);
     display: flex;
