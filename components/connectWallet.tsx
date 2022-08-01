@@ -47,14 +47,21 @@ export const ConnectWallet = () => {
         <li><a className={styles.dropdownArrow} href="#">Connect Wallet</a>
           <ul className={styles.subMenus}>
             <li>
-              <button onClick={() => connectWithCoinbaseWallet()}>
-                Coinbase Wallet
-              </button>
-            </li>
-            <li>
+              <img src={`/icons/metamask.svg`} width="30" alt="metamask" />
               <button onClick={() => connectWithMetamask()}>MetaMask</button>
             </li>
             <li>
+              <img src={`/icons/trustwallet.svg`} width="30" alt="trustwallet" />
+              <button onClick={() => connectWithMetamask()}>TrustWallet</button>
+            </li>
+            <li>
+              <img src={`/icons/coinbase.svg`} width="30" alt="coinbase" />
+              <button onClick={() => connectWithCoinbaseWallet()}>
+                Coinbase
+              </button>
+            </li>
+            <li>
+              <img src={`/icons/walletconnect.svg`} width="30" alt="walletconnect" />
               <button onClick={() => connectWithWalletConnect()}>
                 WalletConnect
               </button>
