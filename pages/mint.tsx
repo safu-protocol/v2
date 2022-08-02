@@ -37,8 +37,7 @@ const Mint: NextPage = () => {
             <h1 className={styles.h1}>Mint An NFT!</h1>
 
             <p className={styles.explain}>
-                Here is where we use our <b>NFT Drop</b> contract to allow users to mint
-                one of the NFTs that we lazy minted.
+                There are only limited number of <strong>1000 SAFUMA</strong> NFTs available to mint. <br />These NFTs can be staked to earn <strong>SAFUYIELD</strong>(ERC-20) tokens according to the token emission schedule.
             </p>
             <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 

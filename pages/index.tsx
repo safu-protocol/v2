@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
-import Link from 'next/link';
+import Link from "next/link";
 
 import {
   useContract,
@@ -15,9 +15,7 @@ import Footer from "../components/footer";
 const Home: NextPage = () => {
   const nftDropContractAddress = process.env.nftDropContractAddress
   const nftContract = useNFTDrop(nftDropContractAddress);
-
   const { contract } = useContract(process.env.stakingContractAddress);
-
 
   const [state, setState] = useState({
     totalNFTSupply: 0,
@@ -94,8 +92,13 @@ const Home: NextPage = () => {
             <img src={`/icons/mint-icon.png`} width="60" alt="token mint nft" />
             <h2 className={styles.selectBoxTitle}>Mint a new NFT</h2>
             <p className={styles.selectBoxDescription}>
-              Use the <strong>SAFUNFT</strong> mint contract to claim your own <strong>SAFUMA NFT</strong> here.
+              Use the <strong>SAFUNFT</strong> mint contract to claim your own <strong>SAFUMA NFT</strong>.
             </p>
+            <button
+              className={`${styles.mainButton} ${styles.spacerBottom}`}
+            >
+              Mint NFT
+            </button>
           </div>
         </Link>
 
@@ -104,8 +107,13 @@ const Home: NextPage = () => {
             <img src={`/icons/stake-icon.png`} width="60" alt="token stake nft" />
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
             <p className={styles.selectBoxDescription}>
-              Stake your ERC-721 <strong>SAFUMA</strong> NFTs via our staking contract and earn <strong>SAFUYIELD</strong> tokens.
+              Stake your ERC-721 <strong>SAFUMA</strong> NFTs and earn <strong>SAFUYIELD</strong> tokens.
             </p>
+            <button
+              className={`${styles.mainButton} ${styles.spacerBottom}`}
+            >
+              Stake NFT
+            </button>
           </div>
         </Link>
 
