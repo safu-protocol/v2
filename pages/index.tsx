@@ -58,10 +58,9 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Menu />
 
-      {/* Top Section */}
-      <div className={styles.topSection}>
-        <h1 className={styles.h1}><br /><br />Welcome to SAFUYIELD!</h1>
-      </div>
+      {/* Top Section Banner*/}
+      <h1 className={styles.h1}>Welcome to SAFUYIELD!</h1>
+      <div className={styles.topSection}></div>
 
       <div
         className={styles.nftBoxGrid}

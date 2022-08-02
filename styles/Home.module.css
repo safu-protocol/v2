@@ -166,9 +166,13 @@
 
 .h1 {
     margin-bottom: 0px;
-    text-shadow: 2px 2px 4px black;
+    text-shadow: 2px 2px 4px white;
     font-size: 2.4rem;
     color: var(--menu-color-base);
+    background-color: #CCC;
+    text-align: center;
+    margin: 0;
+    width: 100%;
 }
 
 .explain {
@@ -283,7 +287,7 @@
 }
 
 .optionSelectBox {
-    background-color: #626161;
+    background-color: #3D4746;
     border-radius: 16px;
     /*border: 1px solid #ccc;*/
     width: 48%;
@@ -493,14 +497,14 @@
 }
 
 .topSection {
-    background: url("/icons/top-bg.png");
+    background: url("/icons/top-bg.jpg");
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 50%;
     width: 100%;
-    min-height: 300px;
+    min-height: 100px;
     opacity: 0.9;
     /*margin-top: 20px;*/
     /*border-radius: 16px;*/

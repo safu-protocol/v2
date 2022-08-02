@@ -34,7 +34,7 @@
 .menu a {
     display: block;
     line-height: 63px;
-    padding: 0 14px;
+    padding: 0 30px;
     text-decoration: none;
     color: #FFFFFF;
     font-size: 17px;
@@ -110,7 +110,7 @@
     width: 100%;
     color: white;
     border-bottom: 1px solid white;
-    padding: 5px;
+    padding: 8px;
     cursor: pointer;
 }
 

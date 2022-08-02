@@ -44,7 +44,7 @@ export const ConnectWallet = () => {
   return (
     <div className={styles.menu}>
       <ul>
-        <li><a className={styles.dropdownArrow} href="#">Connect Wallet</a>
+        <li><a className={styles.dropdownArrow} href="#">Wallet</a>
           <ul className={styles.subMenus}>
             <li>
               <img src={`/icons/metamask.svg`} width="30" alt="metamask" />
