@@ -57,7 +57,6 @@ const Home: NextPage = () => {
       <Menu />
 
       {/* Top Section Banner*/}
-      <h1 className={styles.h1}>Welcome to SAFUYIELD!</h1>
       <div className={styles.topSection}></div>
 
       <div
@@ -71,8 +70,8 @@ const Home: NextPage = () => {
           <p className={styles.selectBoxDescription}>
             Total NFT supply / Claimed / Available: <strong>{state.totalNFTSupply}</strong> / <strong>{state.claimedNFTCount}</strong> / <strong>{state.unclaimedNFTCount}</strong> <br />
             Number of staked NFTs: <strong>{state.stakedNFTCount} </strong><br />
-            Hourly staking reward per NFT: <strong>{state.hourlyRewardPerNFT} SAFUYIELD</strong> <br />
-            <small>(hourly SAFUYIELD emission divided by total number of staked NFTs)</small>
+            Hourly staking reward per NFT: <strong>{state.hourlyRewardPerNFT} SAFU</strong> <br />
+            <small>(hourly SAFU emission divided by total number of staked NFTs)</small>
           </p>
         </div>
 
@@ -80,10 +79,10 @@ const Home: NextPage = () => {
           <img src={`/icons/emission-icon.png`} width="60" alt="token emission" />
           <h2 className={styles.selectBoxTitle}>Token emission</h2>
           <p className={styles.selectBoxDescription}>
-            Circulating SAFUYIELD supply: <strong>100 Million</strong> <br />
-            Max SAFUYIELD supply: <strong>200 Million</strong> <br />
-            Emission schedule(year): <strong>10 Million SAFUYIELD</strong> <br />
-            Emission schedule(hour): <strong>1142 SAFUYIELD</strong>
+            Circulating SAFU supply: <strong>100 Million</strong> <br />
+            Max SAFU supply: <strong>200 Million</strong> <br />
+            Emission schedule(year): <strong>10 Million SAFU</strong> <br />
+            Emission schedule(hour): <strong>1142 SAFU</strong>
           </p>
         </div>
 
@@ -107,7 +106,7 @@ const Home: NextPage = () => {
             <img src={`/icons/stake-icon.png`} width="60" alt="token stake nft" />
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
             <p className={styles.selectBoxDescription}>
-              Stake your ERC-721 <strong>SAFUMA</strong> NFTs and earn <strong>SAFUYIELD</strong> tokens.
+              Stake your ERC-721 <strong>SAFUMA</strong> NFTs and earn <strong>SAFU</strong> tokens.
             </p>
             <button
               className={`${styles.mainButton} ${styles.spacerBottom}`}

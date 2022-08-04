@@ -7,7 +7,9 @@ const Menu = () => {
         <>
             <nav className={styles.menu}>
                 <input type="checkbox" id="responsive-menu"></input><label></label>
-                <img src={`/icons/safuyield-logo.svg`} className={styles.tokenHome} width="60" alt="drop" />
+                <Link href="/">
+                    <img src={`/icons/safuyield-logo.svg`} className={styles.tokenHome} width="60" alt="drop" />
+                </Link>
                 <ul>
                     <li>
                         <Link href="/">

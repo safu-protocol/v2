@@ -18,6 +18,7 @@
     margin-right: auto;
     width: 60px;
     z-index: 200;
+    cursor: pointer;
 }
 
 .menu ul,
