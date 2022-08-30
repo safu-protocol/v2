@@ -118,6 +118,15 @@
     font-weight: 600;
 }
 
+.mainButton button {
+    border: 0;
+    background-color: #444444;
+    width: 100%;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+}
+
 .mainButton {
     cursor: pointer;
     display: inline-flex;

@@ -1,6 +1,6 @@
 import styles from "../styles/Menu.module.css";
 import Link from 'next/link';
-import { ConnectWallet } from "./connectWallet";
+import { ConnectWeb3 } from "./connectWeb3";
 
 const Menu = () => {
     return (
@@ -8,7 +8,7 @@ const Menu = () => {
             <nav className={styles.menu}>
                 <input type="checkbox" id="responsive-menu"></input><label></label>
                 <Link href="/">
-                    <img src={`/icons/safuyield-logo.svg`} className={styles.tokenHome} width="60" alt="drop" />
+                    <img src={`/icons/safu.png`} className={styles.tokenHome} width="60" alt="drop" />
                 </Link>
                 <ul>
                     <li>
@@ -17,7 +17,8 @@ const Menu = () => {
                         </Link>
                     </li>
                     <li>
-                        <a target="_blank" href="https://safuyield.gitbook.io/safu-net-safuyield" rel="noopener noreferrer">Docs</a>
+                        {/*<a target="_blank" href="https://docs.safu.net" rel="noopener noreferrer">Docs</a> */}
+                        <a target="_blank" href="https://docs.safu.net" rel="noopener noreferrer">WhitePaper</a>
                     </li>
                     <li>
                         <a target="_blank" className={styles.buyButton} href="https://pancakeswap.finance/swap?outputCurrency=0xc74cd0042c837ce59210857504ebb0859e06aa22" rel="noopener noreferrer">Buy</a>
@@ -25,6 +26,11 @@ const Menu = () => {
                     <li>
                         <a className={styles.dropdownArrow} href="#">Explore</a>
                         <ul className={styles.subMenus}>
+                            <li>
+                                <Link href="/mint">
+                                    <a>Mint NFT</a>
+                                </Link>
+                            </li>
                             <li>
                                 <Link href="/stake">
                                     <a>Stake</a>
@@ -46,7 +52,7 @@ const Menu = () => {
 
                 </ul>
             </nav>
-            <ConnectWallet />
+            <ConnectWeb3 />
         </>
 
     );

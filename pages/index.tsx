@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       const totalNFTSupply = await nftContract?.totalSupply();
       const claimedNFTCount = await nftContract?.totalClaimedSupply();
       const unclaimedNFTCount = await nftContract?.totalUnclaimedSupply();
-      const stakedNFTCount = await contract?.call("getTotalStakedTokens");
+      const stakedNFTCount = await contract?.call("totalStakedSupply");
 
       setState({
         ...state,

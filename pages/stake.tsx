@@ -7,6 +7,7 @@ import {
     useTokenBalance,
     useOwnedNFTs,
     useContract,
+    ConnectWallet
 } from "@thirdweb-dev/react";
 import { BigNumber, ethers } from "ethers";
 import type { NextPage } from "next";
@@ -47,13 +48,13 @@ const Stake: NextPage = () => {
         if (!contract) return;
 
         async function loadStakedNfts() {
-            const stakedTokens = await contract?.call("getStakedTokens", address);
+            const stakedTokens = await contract?.call("userStakeInfo", address);
 
             // For each staked token, fetch it from the sdk
             const stakedNfts = await Promise.all(
-                stakedTokens?.map(
-                    async (stakedToken: { staker: string; tokenId: BigNumber }) => {
-                        const nft = await nftDropContract?.get(stakedToken.tokenId);
+                stakedTokens[0]?.map(
+                    async (stakedToken: BigNumber) => {
+                        const nft = await nftDropContract?.get(stakedToken);
                         return nft;
                     }
                 )
@@ -72,7 +73,7 @@ const Stake: NextPage = () => {
         if (!contract || !address) return;
 
         async function loadClaimableRewards() {
-            const cr = await contract?.call("availableRewards", address);
+            const cr = await contract?.call("calculateRewards", address);
             console.log("Loaded claimable rewards", cr);
             setClaimableRewards(cr);
         }
@@ -94,11 +95,11 @@ const Stake: NextPage = () => {
         if (!isApproved) {
             await nftDropContract?.setApprovalForAll(stakingContractAddress, true);
         }
-        const stake = await contract?.call("stake", id);
+        const stake = await contract?.call("stake", [id]);
     }
 
     async function withdraw(id: BigNumber) {
-        const withdraw = await contract?.call("withdraw", id);
+        const withdraw = await contract?.call("withdraw", [id]);
     }
 
     async function claimRewards() {
@@ -117,9 +118,13 @@ const Stake: NextPage = () => {
             <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
             {!address ? (
-                <button className={styles.mainButton} onClick={connectWithMetamask}>
-                    Connect Wallet
-                </button>
+                <div className={styles.mainButton}>
+                    <ConnectWallet
+                        // Some customization of the button style
+                        colorMode="dark"
+                        accentColor="#2CAAAA"
+                    />
+                </div>
             ) : (
                 <>
                     <h2>Your Tokens</h2>

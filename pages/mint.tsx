@@ -1,4 +1,4 @@
-import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
+import { useAddress, useMetamask, useNFTDrop, ConnectWallet } from "@thirdweb-dev/react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
@@ -37,17 +37,18 @@ const Mint: NextPage = () => {
             <h1 className={styles.h1}>Mint An NFT!</h1>
 
             <p className={styles.explain}>
-                There are only limited number of <strong>1000 SAFUMA</strong> NFTs available to mint. <br />These NFTs can be staked to earn <strong>SAFU</strong>(ERC-20) tokens according to the token emission schedule.
+                There are only limited number of <strong>1111 SAFU Guardian</strong> NFTs available to mint. <br />These NFTs can be staked to earn <strong>SAFU</strong>(ERC-20) tokens according to the token emission schedule.
             </p>
             <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 
             {!address ? (
-                <button
-                    className={`${styles.mainButton} ${styles.spacerBottom}`}
-                    onClick={connectWithMetamask}
-                >
-                    Connect Wallet
-                </button>
+                <div className={styles.mainButton}>
+                    <ConnectWallet
+                        // Some customization of the button style
+                        colorMode="dark"
+                        accentColor="#2CAAAA"
+                    />
+                </div>
             ) : (
                 <button
                     className={`${styles.mainButton} ${styles.spacerBottom}`}
