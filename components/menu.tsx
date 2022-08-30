@@ -6,10 +6,11 @@ const Menu = () => {
     return (
         <>
             <nav className={styles.menu}>
-                <input type="checkbox" id="responsive-menu"></input><label></label>
+                <input type="checkbox" id="responsive-menu"></input>
                 <Link href="/">
                     <img src={`/icons/safu.png`} className={styles.tokenHome} width="60" alt="drop" />
                 </Link>
+                <label></label>
                 <ul>
                     <li>
                         <Link href="/">
