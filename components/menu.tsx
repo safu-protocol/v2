@@ -19,7 +19,7 @@ const Menu = () => {
                     </li>
                     <li>
                         {/*<a target="_blank" href="https://docs.safu.net" rel="noopener noreferrer">Docs</a> */}
-                        <a target="_blank" href="https://docs.safu.net" rel="noopener noreferrer">WhitePaper</a>
+                        <a target="_blank" href="https://hackmd.io/@FOMO-RESEARCH-LABS/SAFU-Protocol" rel="noopener noreferrer">WhitePaper</a>
                     </li>
                     <li>
                         <a target="_blank" className={styles.buyButton} href="https://pancakeswap.finance/swap?outputCurrency=0xc74cd0042c837ce59210857504ebb0859e06aa22" rel="noopener noreferrer">Buy</a>

@@ -2,9 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    nftDropContractAddress: "0xb949F51f4DB16113e2175e385E86eCb0bd047a11",
-    tokenContractAddress: "0x324Ae774232F28693f5Af66509a0b4965C2F18DC",
-    stakingContractAddress: "0x3044D888D62166a80418Ed0375C9C17E21752D8a"
+    openSeaUrl: "https://testnets.opensea.io/collection/safu-guardian-nft",
+    nftDropContractAddress: "0x708197c3E687cdC93E6354351962c7c7921904Ba",
+    tokenContractAddress: "0xE473b2A0791DCcECBD9a2aD6960104dF03D310ED",
+    stakingContractAddress: "0x7c08b08e17189b2976314eBf6ebfAc1F2A82e3D7"
   },
 }
 

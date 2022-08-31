@@ -1,4 +1,5 @@
 import { useAddress, useMetamask, useNFTDrop, ConnectWallet } from "@thirdweb-dev/react";
+import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
@@ -11,13 +12,37 @@ const Mint: NextPage = () => {
     // Get the currently connected wallet's address
     const address = useAddress();
 
-    // Function to connect to the user's Metamask wallet
-    const connectWithMetamask = useMetamask();
-
     // Get the NFT Collection contract
     const nftDropContract = useNFTDrop(
         process.env.nftDropContractAddress
     );
+
+    const openSeaUrl = process.env.openSeaUrl;
+
+    const [state, setState] = useState({
+        totalNFTSupply: 0,
+        claimedNFTCount: 0,
+    });
+
+    useEffect(() => {
+        if (!nftDropContract) return;
+
+        async function geMintInfo() {
+
+            const totalNFTSupply = await nftDropContract?.totalSupply();
+            const claimedNFTCount = await nftDropContract?.totalClaimedSupply();
+
+            setState({
+                ...state,
+                totalNFTSupply: totalNFTSupply?.toNumber() as number,
+                claimedNFTCount: claimedNFTCount?.toNumber() as number,
+            });
+
+        }
+
+        geMintInfo();
+
+    }, [nftDropContract, state]);
 
     async function claimNft() {
         try {
@@ -50,12 +75,16 @@ const Mint: NextPage = () => {
                     />
                 </div>
             ) : (
-                <button
-                    className={`${styles.mainButton} ${styles.spacerBottom}`}
-                    onClick={() => claimNft()}
-                >
-                    Claim An NFT
-                </button>
+                <>
+                    <strong>{state.claimedNFTCount} / {state.totalNFTSupply} claimed!</strong>
+                    <button
+                        className={`${styles.mainButton} ${styles.spacerBottom}`}
+                        onClick={() => claimNft()}
+                    >
+                        Claim An NFT
+                    </button>
+                    <a className={styles.secondaryButton} target="_blank" href={openSeaUrl} rel="noopener noreferrer">Full collection on OpenSea</a>
+                </>
             )} {<Footer />}
         </div>
     );

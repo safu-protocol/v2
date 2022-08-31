@@ -34,6 +34,7 @@ const Home: NextPage = () => {
       const claimedNFTCount = await nftContract?.totalClaimedSupply();
       const unclaimedNFTCount = await nftContract?.totalUnclaimedSupply();
       const stakedNFTCount = await contract?.call("totalStakedSupply");
+      const rewardPerToken: number = await contract?.call("getRewardPerToken");
 
       setState({
         ...state,
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
         claimedNFTCount: claimedNFTCount?.toNumber() as number,
         unclaimedNFTCount: unclaimedNFTCount?.toNumber() as number,
         stakedNFTCount: stakedNFTCount?.toNumber() as number,
-        hourlyRewardPerNFT: 1142 / stakedNFTCount?.toNumber() as number
+        hourlyRewardPerNFT: rewardPerToken / (10 ** 18) * 3600
       });
 
     }
@@ -91,7 +92,7 @@ const Home: NextPage = () => {
             <img src={`/icons/mint-icon.png`} width="60" alt="token mint nft" />
             <h2 className={styles.selectBoxTitle}>Mint a new NFT</h2>
             <p className={styles.selectBoxDescription}>
-              Use the <strong>SAFUNFT</strong> mint contract to claim your own <strong>SAFUMA NFT</strong>.
+              Use the <strong>SAFU NFT</strong> mint contract to claim your own <strong>SAFU Guardian NFT</strong>.
             </p>
             <button
               className={`${styles.mainButton} ${styles.spacerBottom}`}
@@ -106,7 +107,7 @@ const Home: NextPage = () => {
             <img src={`/icons/stake-icon.png`} width="60" alt="token stake nft" />
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
             <p className={styles.selectBoxDescription}>
-              Stake your ERC-721 <strong>SAFUMA</strong> NFTs and earn <strong>SAFU</strong> tokens.
+              Stake your ERC-721 <strong>SAFU Guardian</strong> NFTs and earn <strong>SAFU</strong> tokens.
             </p>
             <button
               className={`${styles.mainButton} ${styles.spacerBottom}`}

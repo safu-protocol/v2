@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /// @title SAFU Guardian NFT Staking Contract
 /// @notice Staking Contract that uses the Synthetix Staking model to distribute SAFU(ERC-20) token rewards in a dynamic way, proportionally based on the amount of SAFU Guardian ERC-721 tokens staked by each staker at any given time
 
-contract SAFUERC721Staking is ERC721Holder, ReentrancyGuard, Ownable {
+contract SafuERC721Staking is ERC721Holder, ReentrancyGuard, Ownable {
     using SafeERC20 for IERC20;
 
     IERC20 public rewardsToken;
@@ -33,7 +33,7 @@ contract SAFUERC721Staking is ERC721Holder, ReentrancyGuard, Ownable {
     mapping(address => uint256[]) private tokensStaked;
 
     /// @param _nftCollection the address of the ERC721 Contract
-    /// @param _rewardsToken the address of the ERC20 token used to rewards staking
+    /// @param _rewardsToken the address of the ERC20 token used for rewards
     constructor(address _nftCollection, address _rewardsToken) {
         nftCollection = IERC721(_nftCollection);
         rewardsToken = IERC20(_rewardsToken);
@@ -201,7 +201,7 @@ contract SAFUERC721Staking is ERC721Holder, ReentrancyGuard, Ownable {
 
     /// @notice fuction used by the Owner to add rewards to be distributed in the set staking period. Rewards can be added multiple times in the same staking period; this will increase the rewards rate for the active period.
     /// @param reward the amount of tokens to be added to the rewards pool
-    /// @dev the Staking Contract has to already own enough Rewards Tokens to distribute all the rewards, so make sure to send all the tokens to the contract before calling this function
+    /// @dev the Staking Contract have to already own enough Rewards Tokens to distribute all the rewards, so make sure to send all the tokens to the contract before calling this function
     function addRewardAmount(uint256 reward)
         public
         onlyOwner

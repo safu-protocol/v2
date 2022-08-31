@@ -24,7 +24,6 @@ import Footer from "../components/footer";
 const Stake: NextPage = () => {
     // Wallet Connection Hooks
     const address = useAddress();
-    const connectWithMetamask = useMetamask();
 
     // Contract Hooks
     const nftDropContract = useNFTDrop(nftDropContractAddress);
