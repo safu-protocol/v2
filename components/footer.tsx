@@ -2,13 +2,13 @@ import styles from "../styles/Footer.module.css";
 import { SocialIcon } from "react-social-icons";
 
 const socialMediaHandlesLinks = {
-    gitHub: "https://github.com/safuyield",
+    gitHub: "https://github.com/safu-protocol",
     instagram: "https://www.instagram.com/safuyield",
-    telegram: "https://t.me/safuyield",
-    twitter: "https://twitter.com/safuyield",
+    telegram: "https://t.me/safuprotocol",
+    twitter: "https://twitter.com/safu_official",
     reddit: "https://www.reddit.com/r/SafuYield",
     medium: "https://safuyield.medium.com",
-    email: "mailto:hello@safuyield.com"
+    email: "mailto:dev@safu.net"
 }
 
 const Footer = () => {

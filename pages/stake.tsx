@@ -42,6 +42,7 @@ const Stake: NextPage = () => {
     ///////////////////////////////////////////////////////////////////////////
     const [stakedNfts, setStakedNfts] = useState<any[]>([]);
     const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
+    const [showChild, setShowChild] = useState(false);
 
     useEffect(() => {
         if (!contract) return;
@@ -66,6 +67,8 @@ const Stake: NextPage = () => {
         if (address) {
             loadStakedNfts();
         }
+
+        setShowChild(true);
     }, [address, contract, nftDropContract]);
 
     useEffect(() => {
@@ -117,13 +120,17 @@ const Stake: NextPage = () => {
             <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
             {!address ? (
-                <div className={styles.mainButton}>
-                    <ConnectWallet
-                        // Some customization of the button style
-                        colorMode="dark"
-                        accentColor="#2CAAAA"
-                    />
-                </div>
+                <>
+                    {showChild &&
+                        <div className={styles.mainButton}>
+                            <ConnectWallet
+                                // Some customization of the button style
+                                colorMode="dark"
+                                accentColor="#2CAAAA"
+                            />
+                        </div>
+                    }
+                </>
             ) : (
                 <>
                     <h2>Your Tokens</h2>

@@ -1,4 +1,4 @@
-import { useAddress, useMetamask, useNFTDrop, ConnectWallet } from "@thirdweb-dev/react";
+import { useAddress, useNFTDrop, ConnectWallet } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -6,6 +6,7 @@ import styles from "../styles/Home.module.css";
 
 import Menu from "../components/menu";
 import Footer from "../components/footer";
+import { ConnectWeb3 } from "../components/connectWeb3";
 
 const Mint: NextPage = () => {
     const router = useRouter();
@@ -24,6 +25,8 @@ const Mint: NextPage = () => {
         claimedNFTCount: 0,
     });
 
+    const [showChild, setShowChild] = useState(false);
+
     useEffect(() => {
         if (!nftDropContract) return;
 
@@ -41,6 +44,7 @@ const Mint: NextPage = () => {
         }
 
         geMintInfo();
+        setShowChild(true);
 
     }, [nftDropContract, state]);
 
@@ -67,13 +71,17 @@ const Mint: NextPage = () => {
             <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 
             {!address ? (
-                <div className={styles.mainButton}>
-                    <ConnectWallet
-                        // Some customization of the button style
-                        colorMode="dark"
-                        accentColor="#2CAAAA"
-                    />
-                </div>
+                <>
+                    {showChild &&
+                        <div className={styles.mainButton}>
+                            <ConnectWallet
+                                // Some customization of the button style
+                                colorMode="dark"
+                                accentColor="#2CAAAA"
+                            />
+                        </div>
+                    }
+                </>
             ) : (
                 <>
                     <strong>{state.claimedNFTCount} / {state.totalNFTSupply} claimed!</strong>
