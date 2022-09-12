@@ -1,7 +1,6 @@
 import {
     ThirdwebNftMedia,
     useAddress,
-    useMetamask,
     useNFTDrop,
     useToken,
     useTokenBalance,
