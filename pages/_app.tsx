@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 import type { AppProps } from "next/app";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import "../styles/globals.css";
@@ -6,9 +7,10 @@ import "../styles/globals.css";
 const activeChainId = ChainId.Goerli;
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const C = Component as FunctionComponent;
   return (
     <ThirdwebProvider desiredChainId={activeChainId}>
-      <Component {...pageProps} />
+      <C {...pageProps} />
     </ThirdwebProvider>
   );
 }

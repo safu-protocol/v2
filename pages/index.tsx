@@ -11,6 +11,7 @@ import {
 
 import Menu from "../components/menu";
 import Footer from "../components/footer";
+import { Partners } from "../components/partners";
 
 const Home: NextPage = () => {
   const nftDropContractAddress = process.env.nftDropContractAddress
@@ -118,6 +119,8 @@ const Home: NextPage = () => {
         </Link>
 
       </div>
+
+      <Partners />
 
       <Footer />
     </div>
