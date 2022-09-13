@@ -304,6 +304,7 @@
     border: 1px solid #ccc;
     width: 19%;
     min-height: 200px;
+    background: #3D4746;
 }
 
 .optionSelectBox {
@@ -378,6 +379,7 @@
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.4);
     gap: 16px;
+    background: #3D4746;
 }
 
 .tokenLabel {

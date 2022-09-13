@@ -35,7 +35,7 @@ select {
 
 body {
     background: var(--black);
-    background: linear-gradient(112.83deg, #223332 8.26%, #202929 59.75%, #1F2021 94.66%);
+    background: radial-gradient(circle, rgba(135,145,159,1) 20%, rgba(9,167,168,1) 45%, rgba(124,106,124,1) 78%);
     font-family: "Inter", sans-serif;
     color: var(--white);
     display: flex;
