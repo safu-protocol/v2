@@ -259,12 +259,11 @@
 .topSection {
     background: url("/icons/intro.gif");
     position: relative;
-    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     height: 50%;
     width: 100%;
-    min-height: 256px;
+    min-height: 300px;
 }
 
 /* Between 700px and 900px */
