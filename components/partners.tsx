@@ -36,7 +36,7 @@ export const Partners = () => {
 
     return (
         <PartnerBox>
-            <h2>Partners</h2>
+            <h3>Partners</h3>
             <Rerousel itemRef={ref}>
                 <Item ref={ref}><img src={`/icons/emission-icon.png`} width="80" alt="token emission" /></Item>
                 <Item><img src={`/icons/mint-icon.png`} width="80" alt="token mint nft" /></Item>
