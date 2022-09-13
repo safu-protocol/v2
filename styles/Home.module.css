@@ -263,7 +263,7 @@
     background-size: 100%;
     height: 50%;
     width: 100%;
-    min-height: 300px;
+    min-height: calc(100vw / 6.25);
 }
 
 /* Between 700px and 900px */
@@ -275,10 +275,6 @@
     .contractBox {
         width: 48%;
     }
-
-    .topSection {
-        min-height: 200px;
-    }
 }
 
 @media screen and (max-width: 699px) {
@@ -289,10 +285,6 @@
     .contractBox {
         width: 98%;
     }
-
-    .topSection {
-        min-height: 100px;
-    }
 }
 
 .nftBoxGrid {
@@ -300,11 +292,10 @@
     max-width: 95vw;
     display: flex;
     flex-direction: row;
-    /*align-items: center;*/
+    align-items: center;
     justify-content: center;
-    gap: 2%;
-    margin-top: 28px;
-    margin-bottom: 56px;
+    gap: 10px;
+    margin-top: 10px;
     flex-wrap: wrap;
 }
 
@@ -318,11 +309,8 @@
 .optionSelectBox {
     background-color: #3D4746;
     border-radius: 16px;
-    /*border: 1px solid #ccc;*/
     width: 48%;
-    min-height: 200px;
-    height: 100%;
-    min-height: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -330,7 +318,6 @@
     padding-left: 12px;
     padding-right: 12px;
     /*cursor: pointer;*/
-    margin-bottom: 20px;
 }
 
 .selectBoxTitle {
@@ -366,7 +353,6 @@
 
     .optionSelectBox {
         width: 90%;
-        margin-bottom: 20px;
     }
 }
 
