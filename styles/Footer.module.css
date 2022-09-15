@@ -6,6 +6,7 @@
     width: 100%;
     background-color: black;
     display: flex;
+    margin-top: auto;
 }
 
 .socialHandleList {

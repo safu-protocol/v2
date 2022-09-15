@@ -41,6 +41,7 @@
     justify-content: center;
     width: 100%;
     position: absolute;
+    min-height: 100vh;
     /*padding: 0 12px;*/
 }
 
