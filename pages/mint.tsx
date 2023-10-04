@@ -1,4 +1,4 @@
-import { useAddress, useNFTDrop, ConnectWallet } from "@thirdweb-dev/react";
+import { useAddress, useContract, ConnectWallet } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -13,8 +13,8 @@ const Mint: NextPage = () => {
     const address = useAddress();
 
     // Get the NFT Collection contract
-    const nftDropContract = useNFTDrop(
-        process.env.nftDropContractAddress
+    const nftDropContract = useContract(
+        process.env.nftDropContractAddress, "nft-drop"
     );
 
     const openSeaUrl = process.env.openSeaUrl;
@@ -31,8 +31,8 @@ const Mint: NextPage = () => {
 
         async function geMintInfo() {
 
-            const totalNFTSupply = await nftDropContract?.totalSupply();
-            const claimedNFTCount = await nftDropContract?.totalClaimedSupply();
+            const totalNFTSupply = await nftDropContract?.contract?.totalSupply();
+            const claimedNFTCount = await nftDropContract?.contract?.totalClaimedSupply();
 
             setState({
                 ...state,
@@ -49,7 +49,7 @@ const Mint: NextPage = () => {
 
     async function claimNft() {
         try {
-            const tx = await nftDropContract?.claim(1);
+            const tx = await nftDropContract?.contract?.claim(1);
             console.log(tx);
             alert("NFT Claimed!");
             router.push(`/stake`);
@@ -75,8 +75,7 @@ const Mint: NextPage = () => {
                         <div className={styles.mainButton}>
                             <ConnectWallet
                                 // Some customization of the button style
-                                colorMode="dark"
-                                accentColor="#2CAAAA"
+                                theme="dark"
                             />
                         </div>
                     }
