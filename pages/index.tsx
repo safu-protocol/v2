@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import {
   useContract,
-  useNFTDrop
 } from "@thirdweb-dev/react";
 
 
@@ -15,7 +14,7 @@ import { Partners } from "../components/partners";
 
 const Home: NextPage = () => {
   const nftDropContractAddress = process.env.nftDropContractAddress
-  const nftContract = useNFTDrop(nftDropContractAddress);
+  const nftContract = useContract(nftDropContractAddress, "nft-drop");
   const { contract } = useContract(process.env.stakingContractAddress);
 
   const [state, setState] = useState({
@@ -31,9 +30,9 @@ const Home: NextPage = () => {
 
     async function getDashboardInfo() {
 
-      const totalNFTSupply = await nftContract?.totalSupply();
-      const claimedNFTCount = await nftContract?.totalClaimedSupply();
-      const unclaimedNFTCount = await nftContract?.totalUnclaimedSupply();
+      const totalNFTSupply = await nftContract?.contract?.totalSupply();
+      const claimedNFTCount = await nftContract?.contract?.totalClaimedSupply();
+      const unclaimedNFTCount = await nftContract?.contract?.totalUnclaimedSupply();
       const stakedNFTCount = await contract?.call("totalStakedSupply");
       const rewardPerToken: number = await contract?.call("getRewardPerToken");
 
@@ -61,6 +60,8 @@ const Home: NextPage = () => {
       {/* Top Section Banner*/}
       <div className={styles.topSection}></div>
 
+      <hr className={`${styles.divider} ${styles.spacerTop}`} />
+
       <div
         className={styles.nftBoxGrid}
         role="button"
@@ -73,7 +74,12 @@ const Home: NextPage = () => {
             Total NFT supply / Claimed / Available: <strong>{state.totalNFTSupply}</strong> / <strong>{state.claimedNFTCount}</strong> / <strong>{state.unclaimedNFTCount}</strong> <br />
             Number of staked NFTs: <strong>{state.stakedNFTCount} </strong><br />
             Hourly staking reward per NFT: <strong>{state.hourlyRewardPerNFT} SAFU</strong> <br />
-            <small>(hourly SAFU emission divided by total number of staked NFTs)</small>
+            <small>(hourly SAFU emission divided by total number of staked NFTs)</small> <br />
+            <small>Staking Contract Address: <br/>
+              <a href={"https://goerli.etherscan.io/address/" + process.env.stakingContractAddress} target="_blank" rel="noreferrer">
+                {process.env.stakingContractAddress}
+              </a>
+            </small>
           </p>
         </div>
 
@@ -120,7 +126,11 @@ const Home: NextPage = () => {
 
       </div>
 
+      <hr className={`${styles.divider} ${styles.spacerTop}`} />
+
       <Partners />
+
+      <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       <Footer />
     </div>
