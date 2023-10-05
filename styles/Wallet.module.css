@@ -119,5 +119,5 @@
 }
 
 .menu button:hover {
-    color: var(--tw-color1-hover);
+    opacity: 0.8;
 }

@@ -74,8 +74,8 @@ const Mint: NextPage = () => {
                     {showChild &&
                         <div>
                             <ConnectWallet
-                                // Some customization of the button style
-                                theme="dark"
+                                className={`${styles.mainButton} ${styles.spacerBottom}`}
+                                theme="light"
                             />
                         </div>
                     }

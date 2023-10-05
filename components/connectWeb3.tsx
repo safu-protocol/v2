@@ -16,7 +16,7 @@ export const ConnectWeb3 = () => {
   return (
     <div className={styles.menu}>
       {showChild && <ConnectWallet
-        // Some customization of the button style
+        className={`${styles.mainButton} ${styles.spacerBottom}`}
         theme="light"
       />}
     </div>
