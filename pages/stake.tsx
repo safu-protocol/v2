@@ -117,12 +117,16 @@ const Stake: NextPage = () => {
             <Menu />
             <h1 className={styles.h1}>Stake Your NFTs</h1>
 
-            <hr className={`${styles.divider} ${styles.spacerTop}`} />
-
             {!address ? (
                 <>
                     {showChild &&
-                        <div className={styles.mainButton}>
+                        <div>
+                            <p className={styles.explain}>
+                                Connect your Wallet to get started!
+                            </p>
+
+                            <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
+
                             <ConnectWallet
                                 // Some customization of the button style
                                 theme="dark"
