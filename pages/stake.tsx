@@ -209,6 +209,12 @@ const Stake: NextPage = () => {
                     </div>
 
                     <hr className={`${styles.divider} ${styles.spacerTop}`} />
+
+                    <small>Staking Contract Address <br />
+                        <a href={"https://goerli.etherscan.io/address/" + process.env.stakingContractAddress} target="_blank" rel="noreferrer">
+                            {process.env.stakingContractAddress}
+                        </a>
+                    </small>
                 </>
             )} {<Footer />}
         </div>

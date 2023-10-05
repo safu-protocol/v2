@@ -12,7 +12,12 @@
     position: absolute;
     z-index: 100;
     top: 0;
-    right: 0;
+}
+
+@media only screen and (min-width: 801px) {
+    .menu {
+        right: 0;
+    }
 }
 
 .menu ul,
@@ -113,6 +118,5 @@
 }
 
 .menu button:hover {
-    /*background: #F2F2F2;*/
-    color: #9333ea;
+    color: var(--tw-color1-hover);
 }

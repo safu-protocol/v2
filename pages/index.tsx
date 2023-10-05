@@ -60,7 +60,7 @@ const Home: NextPage = () => {
       {/* Top Section Banner*/}
       <div className={styles.topSection}></div>
 
-      <hr className={`${styles.divider} ${styles.spacerTop}`} />
+      <div className={`${styles.spacerTop}`} />
 
       <div
         className={styles.nftBoxGrid}
@@ -75,11 +75,6 @@ const Home: NextPage = () => {
             Number of staked NFTs: <strong>{state.stakedNFTCount} </strong><br />
             Hourly staking reward per NFT: <strong>{state.hourlyRewardPerNFT} SAFU</strong> <br />
             <small>(hourly SAFU emission divided by total number of staked NFTs)</small> <br />
-            <small>Staking Contract Address: <br/>
-              <a href={"https://goerli.etherscan.io/address/" + process.env.stakingContractAddress} target="_blank" rel="noreferrer">
-                {process.env.stakingContractAddress}
-              </a>
-            </small>
           </p>
         </div>
 
@@ -126,11 +121,14 @@ const Home: NextPage = () => {
 
       </div>
 
-      <hr className={`${styles.divider} ${styles.spacerTop}`} />
-
       <Partners />
+      <hr className={`${styles.divider}`} />
 
-      <hr className={`${styles.divider} ${styles.spacerTop}`} />
+      <small>Staking Contract Address <br/>
+        <a href={"https://goerli.etherscan.io/address/" + process.env.stakingContractAddress} target="_blank" rel="noreferrer">
+          {process.env.stakingContractAddress}
+        </a>
+      </small>
 
       <Footer />
     </div>
