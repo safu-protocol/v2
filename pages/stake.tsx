@@ -128,8 +128,8 @@ const Stake: NextPage = () => {
                             <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 
                             <ConnectWallet
-                                // Some customization of the button style
-                                theme="dark"
+                                className={`${styles.mainButton} ${styles.spacerBottom}`}
+                                theme="light"
                             />
                         </div>
                     }

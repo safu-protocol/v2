@@ -148,13 +148,13 @@
     height: 3rem;
     min-width: 3rem;
     font-size: 1rem;
-    background: #e5e5ea;
-    background-image: linear-gradient(to left, #2892AD 0%, #2CAAAA 101.52%);
-    color: #fff;
+    background: hsl(260, 25.0%, 11.0%) !important;
+    color: #fff !important;
     width: 180px;
     text-align: center;
     border-radius: 9999px;
     border-style: none;
+    transform: scale(.8) !important;
 }
 
 .mainButton:hover {
