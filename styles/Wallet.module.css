@@ -6,7 +6,7 @@
     height: 63px;
     padding-left: 18px;
     padding-right: 18px;
-    padding-top: 6px;
+    line-height: 63px;
     border-radius: 0px;
     float: right;
     position: absolute;
@@ -108,20 +108,11 @@
     color: #444444;
 }
 
-.menu button {
-    border: 0;
-    background-color: #444444;
-    width: 100%;
-    color: white;
-    padding: 8px;
-    cursor: pointer;
-}
-
 .menu img {
     padding-top: 10px;
 }
 
 .menu button:hover {
-    background: #F2F2F2;
-    color: #444444;
+    /*background: #F2F2F2;*/
+    color: #9333ea;
 }
