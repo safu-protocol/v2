@@ -17,7 +17,7 @@ export const ConnectWeb3 = () => {
     <div className={styles.menu}>
       {showChild && <ConnectWallet
         // Some customization of the button style
-        theme="dark"
+        theme="light"
       />}
     </div>
   );

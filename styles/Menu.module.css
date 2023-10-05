@@ -79,7 +79,8 @@
 .menu label:before {
     font-size: 1.6em;
     content: "\2261";
-    margin-left: 20px;
+    position: relative;
+    bottom: 4px;
 }
 
 .menu ul.subMenus {
@@ -144,11 +145,13 @@
 
     .menu input,
     .menu label {
-        position: absolute;
+        position: relative;
         top: 0;
-        left: 60px;
         display: block;
+        float: right;
         font-size: 35px;
+        left: -20px;
+        width: 10px;
     }
 
     .menu input {
