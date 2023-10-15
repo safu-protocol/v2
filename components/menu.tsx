@@ -25,7 +25,9 @@ const Menu = () => {
                         <a target="_blank" className={styles.buyButton} href="https://pancakeswap.finance/swap?outputCurrency=0xc74cd0042c837ce59210857504ebb0859e06aa22" rel="noopener noreferrer">Buy</a>
                     </li>
                     <li>
-                        <a className={styles.dropdownArrow} href="#">Explore</a>
+                        <Link href="/explore">
+                            <a className={styles.dropdownArrow}>Explore</a>
+                        </Link>
                         <ul className={styles.subMenus}>
                             <li>
                                 <Link href="/mint">

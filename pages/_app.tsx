@@ -9,7 +9,10 @@ const activeChainId = ChainId.Goerli;
 function MyApp({ Component, pageProps }: AppProps) {
   const C = Component as FunctionComponent;
   return (
-    <ThirdwebProvider activeChain={activeChainId}>
+    <ThirdwebProvider
+      activeChain={activeChainId}
+      clientId={process.env.clientId}
+    >
       <C {...pageProps} />
     </ThirdwebProvider>
   );

@@ -25,7 +25,7 @@ const Stake: NextPage = () => {
 
     // Contract Hooks
     const nftDropContract = useContract(nftDropContractAddress, "nft-drop");
-    const tokenContract = useToken(tokenContractAddress);
+    const tokenContract = useContract(tokenContractAddress, "token");
 
     const { contract, isLoading } = useContract(stakingContractAddress);
 
@@ -33,7 +33,7 @@ const Stake: NextPage = () => {
     const { data: ownedNfts } = useOwnedNFTs(nftDropContract?.contract, address);
 
     // Load Balance of Token
-    const { data: tokenBalance } = useTokenBalance(tokenContract, address);
+    const { data: tokenBalance } = useTokenBalance(tokenContract?.contract, address);
 
     ///////////////////////////////////////////////////////////////////////////
     // Custom contract functions
@@ -109,7 +109,7 @@ const Stake: NextPage = () => {
     }
 
     if (isLoading) {
-        return <div>Loading</div>;
+        return <div className={styles.container}>Loading...</div>;
     }
 
     return (
