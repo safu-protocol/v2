@@ -516,7 +516,7 @@
 }
 
 /** Pagination styles **/
-.pagination:hover img {
+.nftBox:hover, .pagination:hover img {
     opacity: 1;
 	-webkit-animation: flash 1.5s;
 	animation: flash 1.5s;
