@@ -65,13 +65,11 @@ export const NFTslider = () => {
                         )
                         .reverse()
                         .map((nft) => (
-                            <Item ref={ref}>
-                                <div key={nft?.metadata.id.toString()}>
-                                    <ThirdwebNftMedia
-                                        metadata={nft?.metadata}
-                                        className={styles.nftMedia}
-                                    />
-                                </div>
+                            <Item ref={ref} key={nft?.metadata.id.toString()}>
+                                <ThirdwebNftMedia
+                                    metadata={nft?.metadata}
+                                    className={styles.nftMedia}
+                                />
                             </Item>
                         ))}
                 </Rerousel>
