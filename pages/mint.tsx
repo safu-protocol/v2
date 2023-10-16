@@ -45,7 +45,7 @@ const Mint: NextPage = () => {
         geMintInfo();
         setShowChild(true);
 
-    }, [nftDropContract, state]);
+    }, [nftDropContract.contract]);
 
     async function claimNft() {
         try {

@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 
     getDashboardInfo();
 
-  }, [nftContract, contract, state]);
+  }, [nftContract.contract, contract]);
 
   if (!state.totalNFTSupply) {
     return <div className={styles.container}>Loading...</div>;
