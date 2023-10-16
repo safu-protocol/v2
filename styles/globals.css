@@ -25,7 +25,7 @@ select {
 }
 
 :root {
-    --black: #1c1e21;
+    --black: #212a29;
     --white: #ffffff;
     --tw-color1: #a855f7;
     --tw-color1-hover: #9333ea;
@@ -35,7 +35,7 @@ select {
 
 body {
     background: var(--black);
-    background: radial-gradient(circle, rgba(135, 145, 159, 1) 20%, rgba(9, 167, 168, 1) 45%, rgba(124, 106, 124, 1) 78%);
+    /*background: radial-gradient(circle, rgba(135, 145, 159, 1) 20%, rgba(9, 167, 168, 1) 45%, rgba(124, 106, 124, 1) 78%);*/
     font-family: "Inter", sans-serif;
     color: var(--white);
     display: flex;
