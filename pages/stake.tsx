@@ -157,6 +157,10 @@ const Stake: NextPage = () => {
                         </div>
                     </div>
 
+                    {stakedNfts?.length > 0 &&
+                        <img src={`/icons/mining.gif`} width="120" alt="miner" />
+                    }
+
                     <button
                         className={`${styles.mainButton} ${styles.spacerTop}`}
                         onClick={() => claimRewards()}
