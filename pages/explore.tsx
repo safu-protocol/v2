@@ -78,7 +78,6 @@ const Explore: NextPage = () => {
                     </div>
                 )}
 
-
                 <div className={styles.pagination}>
                     {start > 0 && (
                         <>

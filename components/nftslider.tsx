@@ -28,6 +28,29 @@ export const Item = styled.div`
         font-weight: bold;
         font-size: 1.5em;
 
+        &:hover img {
+            opacity: 1;
+            -webkit-animation: flash 1.5s;
+            animation: flash 1.5s;
+            cursor: pointer;
+        }
+        @-webkit-keyframes flash {
+            0% {
+                opacity: .4;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes flash {
+            0% {
+                opacity: .4;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         img {
             width: 100%;
             height: auto;
