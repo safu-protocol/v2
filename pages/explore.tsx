@@ -5,6 +5,9 @@ import {
     useNFTs,
 } from "@thirdweb-dev/react";
 import type { NextPage } from "next";
+import { useRouter } from 'next/router'
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 import Menu from "../components/menu";
@@ -17,7 +20,25 @@ const Explore: NextPage = () => {
     // Define the NFT contract address
     const nftDropContractAddress: string = process.env.nftDropContractAddress!;
     const nftDropContract = useContract(nftDropContractAddress, "nft-drop");
-    const { data: nfts, isLoading: loading } = useNFTs(nftDropContract?.contract, { start: 0, count: 100 });
+
+    // Initial call to get the NFT collection
+    const router = useRouter()
+    const [start, setStart] = useState<number>(0);
+    let count = 3;
+
+    let { data: nfts, isLoading: loading } = useNFTs(nftDropContract?.contract, { start: start, count: count });
+
+    useEffect(() => {
+        if (router.query.page) {
+            console.log('pagination');
+            if (Number(router.query.page) != 0) {
+                setStart(Number(router.query.page) * count);
+            }
+            else {
+                setStart(0);
+            }
+        }
+    }, [router.query, start]);
 
     if (loading) {
         return <div className={styles.container}>Loading...</div>;
@@ -56,6 +77,25 @@ const Explore: NextPage = () => {
                             ))}
                     </div>
                 )}
+
+
+                <div className={styles.pagination}>
+                    {start > 0 && (
+                        <>
+                            <Link href={`/explore?page=` + Number((start / count) - 1)}>
+                                <img src={`/icons/back.png`} width="60" alt="back page" />
+                            </Link>
+                        </>
+                    )}
+
+                    {nfts && nfts?.length >= count && (
+                        <>
+                            <Link href={`/explore?page=` + Number((start / count) + 1)}>
+                                <img className="hoverImg" src={`/icons/next.png`} width="60" alt="next page" />
+                            </Link>
+                        </>
+                    )}
+                </div>
             </>
             <Partners />
             <hr className={`${styles.divider}`} />
