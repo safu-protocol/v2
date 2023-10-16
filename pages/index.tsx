@@ -4,13 +4,12 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
 import {
-  useContract,
+  useContract
 } from "@thirdweb-dev/react";
-
 
 import Menu from "../components/menu";
 import Footer from "../components/footer";
-import { Partners } from "../components/partners";
+import { NFTslider } from "../components/nftslider";
 
 const Home: NextPage = () => {
   const nftDropContractAddress = process.env.nftDropContractAddress
@@ -52,6 +51,9 @@ const Home: NextPage = () => {
 
   }, [nftContract, contract, state]);
 
+  if (!state.totalNFTSupply) {
+    return <div className={styles.container}>Loading...</div>;
+  }
 
   return (
     <div className={styles.container}>
@@ -121,10 +123,10 @@ const Home: NextPage = () => {
 
       </div>
 
-      <Partners />
+      <NFTslider />
       <hr className={`${styles.divider}`} />
 
-      <small>Staking Contract Address <br/>
+      <small>Staking Contract Address <br />
         <a href={"https://goerli.etherscan.io/address/" + process.env.stakingContractAddress} target="_blank" rel="noreferrer">
           {process.env.stakingContractAddress}
         </a>
