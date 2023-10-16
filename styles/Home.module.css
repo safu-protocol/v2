@@ -336,7 +336,7 @@
 /* Between 1200 and 800 */
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
     .nftBox {
-        width: 49%;
+        /*width: 49%;*/
         margin-top: 16px;
     }
 }
@@ -349,7 +349,7 @@
     }
 
     .nftBox {
-        width: 90%;
+        /*width: 90%;*/
         margin-top: 16px;
     }
 
