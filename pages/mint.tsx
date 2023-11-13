@@ -18,6 +18,7 @@ const Mint: NextPage = () => {
     );
 
     const openSeaUrl = process.env.openSeaUrl;
+    const elementUrl = process.env.elementUrl;
 
     const [state, setState] = useState({
         totalNFTSupply: 0,
@@ -94,6 +95,7 @@ const Mint: NextPage = () => {
                         Mint SAFUNFT
                     </button>
                     <a className={styles.secondaryButton} target="_blank" href={openSeaUrl} rel="noopener noreferrer">Full collection on OpenSea</a>
+                    <a className={styles.secondaryButton} target="_blank" href={elementUrl} rel="noopener noreferrer">Full collection on Element</a>
                 </>
             )} {<Footer />}
         </div>
