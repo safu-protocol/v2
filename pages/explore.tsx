@@ -21,6 +21,7 @@ const Explore: NextPage = () => {
     const nftDropContractAddress: string = process.env.nftDropContractAddress!;
     const nftDropContract = useContract(nftDropContractAddress, "nft-drop");
     const openSeaUrl = process.env.openSeaUrl;
+    const elementUrl = process.env.elementUrl;
 
     const [state, setState] = useState({
         claimedNFTCount: 0,
@@ -116,6 +117,7 @@ const Explore: NextPage = () => {
                 </div>
 
                 <a className={styles.secondaryButton} target="_blank" href={openSeaUrl} rel="noopener noreferrer">Full collection on OpenSea</a>
+                <a className={styles.secondaryButton} target="_blank" href={elementUrl} rel="noopener noreferrer">Full collection on Element</a>
             </>
             <Partners />
             <hr className={`${styles.divider}`} />
