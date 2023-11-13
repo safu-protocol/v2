@@ -51,7 +51,7 @@ const Explore: NextPage = () => {
 
             <p className={styles.explain}>
                 SAFU Guardians are a unique collection of <strong>1269 programatically generated NFTs</strong> available for SAFUYIELD holders. <br />
-                SAFU Guardian NFTs are provably-rare piece of art, giving access to SAFU Protocol NFT staking from day 1, also giving full access to SAFUSCAN token scanner tool and other utilities..
+                SAFU Guardian NFTs are provably-rare piece of art, granting access to various SAFU Protocol utilities..
             </p>
             <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
             <>
@@ -70,7 +70,7 @@ const Explore: NextPage = () => {
                                         className={styles.nftMedia}
                                     />
                                     <div>
-                                        {<small>{nft?.owner == process.env.stakingContractAddress ? "Staked" : "Not Staked"}</small>}
+                                        {<small>{nft?.owner == address ? "Owned by You" : ""}</small>}
                                         <h4>{nft?.metadata.name}</h4>
                                     </div>
                                 </div>

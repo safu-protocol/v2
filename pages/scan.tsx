@@ -74,6 +74,7 @@ const Scan: NextPage = () => {
                         <input
                             name="tokenAddress"
                             type="text"
+                            size={(200)}
                             placeholder="Paste Token contract"
                             className={styles.textInput}
                             onChange={handleChange}
@@ -86,7 +87,7 @@ const Scan: NextPage = () => {
                         </button>
                     </form>
                     <p className={styles.selectBoxDescription}>
-                        Solidity token code analysis tool and rug detector for BSC projects.
+                        Solidity token code analysis tool and rug detector for BSC projects
                     </p>
                     <p>
                         {state.isLoading ? (
