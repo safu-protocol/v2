@@ -20,17 +20,35 @@ const Explore: NextPage = () => {
     // Define the NFT contract address
     const nftDropContractAddress: string = process.env.nftDropContractAddress!;
     const nftDropContract = useContract(nftDropContractAddress, "nft-drop");
-
     const openSeaUrl = process.env.openSeaUrl;
+
+    const [state, setState] = useState({
+        claimedNFTCount: 0,
+    });
 
     // Initial call to get the NFT collection
     const router = useRouter()
     const [start, setStart] = useState<number>(0);
-    let count = 3;
+    let count = 6;
 
     let { data: nfts, isLoading: loading } = useNFTs(nftDropContract?.contract, { start: start, count: count });
 
     useEffect(() => {
+
+        if (!nftDropContract) return;
+
+        async function getDashboardInfo() {
+
+            const claimedNFTCount = await nftDropContract?.contract?.totalClaimedSupply();
+
+            setState({
+                ...state,
+                claimedNFTCount: claimedNFTCount?.toNumber() as number,
+            });
+        }
+
+        getDashboardInfo();
+
         if (router.query.page) {
             console.log('pagination');
             if (Number(router.query.page) != 0) {
@@ -40,7 +58,7 @@ const Explore: NextPage = () => {
                 setStart(0);
             }
         }
-    }, [router.query, start]);
+    }, [nftDropContract, router.query, start]);
 
     if (loading) {
         return <div className={styles.container}>Loading...</div>;
@@ -64,7 +82,6 @@ const Explore: NextPage = () => {
                                 (nft) =>
                                     nft.owner !== "0x0000000000000000000000000000000000000000"
                             )
-                            .reverse()
                             .map((nft) => (
                                 <div className={styles.nftBox} key={nft?.metadata.id.toString()}>
                                     <ThirdwebNftMedia
@@ -89,7 +106,7 @@ const Explore: NextPage = () => {
                         </>
                     )}
 
-                    {nfts && nfts?.length >= count && (
+                    {nfts && state.claimedNFTCount > ((start / count) + 1) * count && (
                         <>
                             <Link href={`/explore?page=` + Number((start / count) + 1)}>
                                 <img className="hoverImg" src={`/icons/next.png`} width="60" alt="next page" />
