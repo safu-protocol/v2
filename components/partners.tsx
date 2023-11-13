@@ -38,15 +38,26 @@ export const Partners = () => {
         <PartnerBox>
             <h3>Partners</h3>
             <Rerousel itemRef={ref}>
-                <Item ref={ref}><img src={`/icons/emission-icon.png`} width="80" alt="token emission" /></Item>
-                <Item><img src={`/icons/mint-icon.png`} width="80" alt="token mint nft" /></Item>
-                <Item>
-                    <Link href={`https://github.com/solidproof/projects/tree/main/Safu_Protocol`} passHref={true}>
-                        <ImagePointer><img src={`/icons/solidproof.png`} width="80" alt="solidproof audit" /></ImagePointer>
+                <Item ref={ref}>
+                    <Link href={`https://safuyield.medium.com/partnership-safu-net-x-avarta-io-7d18083ad769`} passHref={true}>
+                        <ImagePointer><img src={`/icons/avarta.png`} width="100" alt="avarta" /></ImagePointer>
                     </Link>
                 </Item>
-                <Item><img src={`/icons/mint-icon.png`} width="80" alt="token mint nft" /></Item>
-                <Item><img src={`/icons/mint-icon.png`} width="80" alt="token mint nft" /></Item>
+                <Item ref={ref}>
+                    <Link href={`https://github.com/solidproof/projects/tree/main/Safu_Protocol`} passHref={true}>
+                        <ImagePointer><img src={`/icons/solidproof.png`} width="100" alt="solidproof audit" /></ImagePointer>
+                    </Link>
+                </Item>
+                <Item ref={ref}>
+                    <Link href={`https://x.com/safu_official/status/1480512003529715712?s=20`} passHref={true}>
+                        <ImagePointer><img src={`/icons/troopers.svg`} width="100" alt="troppers nft" /></ImagePointer>
+                    </Link>
+                </Item>
+                <Item ref={ref}>
+                    <Link href={`https://unn-finance-main.medium.com/union-partners-with-safu-net-around-protection-and-technology-components-7a7faa03ca3e`} passHref={true}>
+                        <ImagePointer><img src={`/icons/union.png`} width="100" alt="union partners" /></ImagePointer>
+                    </Link>
+                </Item>
             </Rerousel>
         </PartnerBox>
     );

@@ -52,20 +52,24 @@ const Mint: NextPage = () => {
             const tx = await nftDropContract?.contract?.claim(1);
             console.log(tx);
             alert("NFT Claimed!");
-            router.push(`/stake`);
+            router.push(`/explore`);
         } catch (error) {
             console.error(error);
             alert(error);
         }
     }
 
+    if (!state.totalNFTSupply) {
+        return <div className={styles.container}>Loading...</div>;
+    }
+
     return (
         <div className={styles.container}>
             <Menu />
-            <h1 className={styles.h1}>Mint An NFT!</h1>
+            <h1 className={styles.h1}>Mint SAFUNFT</h1>
 
             <p className={styles.explain}>
-                There are only limited number of <strong>1269 SAFU Guardian</strong> NFTs available to mint. <br />These NFTs can be staked to earn <strong>SAFU</strong>(BEP-20) tokens according to the token emission schedule.
+                There are only a limited number of <strong>1269 SAFU Guardian</strong> NFTs available to mint <br /> (20 Billion SAFUYIELD burned when claimed) <br />
             </p>
             <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 
@@ -87,7 +91,7 @@ const Mint: NextPage = () => {
                         className={`${styles.mainButton} ${styles.spacerBottom}`}
                         onClick={() => claimNft()}
                     >
-                        Claim An NFT
+                        Mint SAFUNFT
                     </button>
                     <a className={styles.secondaryButton} target="_blank" href={openSeaUrl} rel="noopener noreferrer">Full collection on OpenSea</a>
                 </>
