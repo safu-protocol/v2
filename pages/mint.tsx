@@ -52,7 +52,7 @@ const Mint: NextPage = () => {
             const tx = await nftDropContract?.contract?.claim(1);
             console.log(tx);
             alert("NFT Claimed!");
-            router.push(`/stake`);
+            router.push(`/explore`);
         } catch (error) {
             console.error(error);
             alert(error);
