@@ -3,4 +3,4 @@
 /blocked  /blocked.html  200
 
 # Redirect users from US to blocked page
-/*  /blocked  301  Country=us
+/*  /blocked  301  Language=en-us
