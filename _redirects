@@ -2,5 +2,8 @@
 # serve blocked.html with beautiful url
 /blocked  /blocked.html  200
 
-# Redirect users from US to blocked page
+# Redirect users with specific lang settings
 /*  /blocked  301  Language=en-us
+
+# Redirect users from US to blocked page
+/*  /blocked  301  Country=us
