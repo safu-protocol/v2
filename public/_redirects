@@ -1,6 +1,4 @@
 # _redirects
-# serve blocked.html with beautiful url
-/blocked  /blocked.html  200
 
 # Redirect users with specific lang settings
 /*  /blocked  301  Language=en-us
